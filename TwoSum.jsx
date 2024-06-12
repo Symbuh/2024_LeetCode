@@ -5,5 +5,19 @@
 */
 
 var twoSum = function(nums, target) {
+    let memo = {}
     
+    // Create a Memo
+    for (let i = 0; i < nums.length; i++) {
+        memo[nums[i]] = i
+    }
+
+    // parse through the memo to determine if there are any matches. 
+    for (let i = 0; i < nums.length; i++) {
+        let difference = target - nums[i]
+
+        if (memo[difference]){
+            return [i, memo[difference]]
+        }    
+    }
 };
