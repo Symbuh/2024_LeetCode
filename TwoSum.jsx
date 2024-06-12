@@ -16,8 +16,17 @@ var twoSum = function(nums, target) {
     for (let i = 0; i < nums.length; i++) {
         let difference = target - nums[i]
 
-        if (memo[difference]){
+        if (memo[difference] && memo[difference] !== i){
             return [i, memo[difference]]
         }    
     }
 };
+
+/*
+    Mistakes: 
+        - I ran into a type error while trying to lookup the object's key by using an integer
+        - I missed an edge case and wrote code that can potentially return the same index for 
+        both buckets. 
+
+    I'm rusty
+*/
